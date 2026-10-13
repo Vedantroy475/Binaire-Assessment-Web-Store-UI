@@ -17,7 +17,7 @@ Built with **React 18 + TypeScript + Vite + Tailwind CSS + GSAP**.
 - [Routes](#routes)
 - [Architecture Notes](#architecture-notes)
 - [Offline Support](#offline-support)
-- [Deployment (Firebase Hosting)](#deployment-firebase-hosting)
+- [Deployment (Netlify & Firebase Hosting)](#deployment-netlify--firebase-hosting)
 
 ---
 
@@ -86,6 +86,7 @@ FreznelAI-Assessment-1/
 ├── .env.example             # Environment variable template
 ├── firebase.json            # Hosting (SPA rewrites) + Firestore config
 ├── firestore.rules          # Per-user security rules (deny by default otherwise)
+├── netlify.toml             # Netlify SPA redirect rewrites (/ -> /index.html 200)
 ├── vite.config.ts           # Vite config with '@' -> src alias
 └── package.json
 ```
@@ -177,19 +178,31 @@ The app opens at **<http://localhost:5173>** (auto-opens by default). You can al
 4. If IndexedDB is unavailable, the cache falls back to an in-memory `Map` so the app never crashes.
 5. `NetworkStatusBanner` surfaces the connection state to the user.
 
-## Deployment (Firebase Hosting)
+## Deployment (Netlify & Firebase Hosting)
 
-The project ships with a `firebase.json` configured to serve the `dist/` folder with SPA rewrites (all routes → `/index.html`).
+### Netlify Deployment
+
+The project contains a `netlify.toml` file configured for single-page routing:
+
+* **Base directory:** *(leave blank / repo root)*
+* **Build command:** `npm run build`
+* **Publish directory:** `dist`
+
+All routes are rewritten to `/index.html` via `netlify.toml` so direct URL visits and hard refreshes on `/app/:id` or `/new-releases` resolve seamlessly without 404 errors. Add the necessary `VITE_*` environment variables in the Netlify site settings before deploying.
+
+### Firebase Hosting
+
+The repository also includes `firebase.json` configured for SPA rewrites to `/index.html`:
 
 ```bash
 npm run build
 firebase login
 firebase deploy          # or: firebase deploy --only hosting
+
 ```
 
-Any static host works as well — just serve the contents of `dist/`.
-
 ---
+
 
 ### License
 
