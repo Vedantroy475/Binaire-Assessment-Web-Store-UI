@@ -42,7 +42,7 @@ export function FilterSidebar({ state, genres, onChange, onReset }: FilterSideba
           {genres.map((genre) => (
             <label
               key={genre}
-              className="flex cursor-pointer items-center gap-2 text-sm text-steam-text hover:text-steam-blue"
+              className="flex cursor-pointer items-center gap-2 text-sm text-steam-text hover:text-white hover:font-bold"
             >
               <Checkbox
                 checked={state.genres.includes(genre)}
@@ -85,7 +85,7 @@ export function FilterSidebar({ state, genres, onChange, onReset }: FilterSideba
       </fieldset>
 
       {/* On sale */}
-      <label className="flex cursor-pointer items-center gap-2 text-sm text-steam-text hover:text-steam-blue">
+      <label className="flex cursor-pointer items-center gap-2 text-sm text-steam-text hover:text-white hover:font-bold">
         <Checkbox
           checked={state.onSaleOnly}
           onCheckedChange={(v) => onChange({ ...state, onSaleOnly: Boolean(v) })}

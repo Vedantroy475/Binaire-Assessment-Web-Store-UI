@@ -37,7 +37,7 @@ export function SetupPage() {
               href="https://www.themoviedb.org/signup"
               target="_blank"
               rel="noreferrer noopener"
-              className="text-steam-blue hover:underline"
+              className="text-steam-blue hover:underline hover:text-white hover:font-bold"
             >
               themoviedb.org
             </a>
@@ -73,7 +73,7 @@ export function SetupPage() {
               href="https://console.firebase.google.com"
               target="_blank"
               rel="noreferrer noopener"
-              className="text-steam-blue hover:underline"
+              className="text-steam-blue hover:underline hover:text-white hover:font-bold"
             >
               console.firebase.google.com
             </a>
