@@ -1,0 +1,175 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ------------------------------------------------------------------ */
+/*  Design tokens (Steam-inspired palette)                            */
+/* ------------------------------------------------------------------ */
+@layer base {
+  :root {
+    /* shadcn/ui semantic tokens (dark theme, mapped to Steam look) */
+    --background: 213 30% 11%;
+    --foreground: 206 20% 80%;
+
+    --card: 213 30% 13%;
+    --card-foreground: 206 20% 80%;
+
+    --popover: 215 33% 12%;
+    --popover-foreground: 206 20% 85%;
+
+    --primary: 207 79% 65%;
+    --primary-foreground: 215 33% 10%;
+
+    --secondary: 215 33% 17%;
+    --secondary-foreground: 206 20% 80%;
+
+    --muted: 215 33% 17%;
+    --muted-foreground: 206 12% 60%;
+
+    --accent: 207 79% 65%;
+    --accent-foreground: 215 33% 10%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 215 33% 20%;
+    --input: 215 33% 20%;
+    --ring: 207 79% 65%;
+
+    --radius: 0.375rem;
+
+    /* Steam store palette */
+    --steam-bg: 213 30% 11%;        /* #1b2838-ish */
+    --steam-bgdark: 213 30% 11%;
+    --steam-header: 214 25% 14%;    /* #171a21-ish */
+    --steam-panel: 215 33% 12%;
+    --steam-card: 215 33% 13%;
+    --steam-cardhover: 213 35% 20%;
+    --steam-blue: 200 85% 66%;      /* #66c0f4 */
+    --steam-bluedark: 206 90% 45%;
+    --steam-green: 80 45% 34%;      /* #5c7e10 */
+    --steam-greendark: 80 47% 27%;
+    --steam-text: 206 20% 80%;
+    --steam-textdim: 206 12% 58%;
+    --steam-pricegreen: 80 100% 71%; /* #beee11 */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-steam-bg text-steam-text;
+    font-family: 'Inter', 'Motiva Sans', Arial, Helvetica, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Accessible, visible focus ring everywhere */
+  :focus-visible {
+    outline: 2px solid hsl(var(--steam-blue));
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  /* Custom scrollbar (desktop feel) */
+  ::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+  }
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--steam-header));
+  }
+  ::-webkit-scrollbar-thumb {
+    background: hsl(215 33% 25%);
+    border-radius: 6px;
+    border: 2px solid hsl(var(--steam-header));
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(215 33% 32%);
+  }
+}
+
+@layer components {
+  /* Steam-style gradient button */
+  .btn-steam {
+    @apply inline-flex items-center justify-center gap-2 rounded-sm px-4 py-2 text-sm font-semibold transition-colors;
+    background: linear-gradient(
+      to bottom,
+      hsl(80 45% 40%),
+      hsl(80 47% 27%)
+    );
+    color: hsl(var(--steam-pricegreen));
+  }
+  .btn-steam:hover {
+    background: linear-gradient(
+      to bottom,
+      hsl(80 45% 45%),
+      hsl(80 47% 32%)
+    );
+  }
+  .btn-steam:active {
+    background: hsl(80 47% 24%);
+  }
+
+  .btn-steam-blue {
+    @apply inline-flex items-center justify-center gap-2 rounded-sm px-4 py-2 text-sm font-semibold transition-colors;
+    background: linear-gradient(
+      to bottom,
+      hsl(200 85% 66%),
+      hsl(206 90% 45%)
+    );
+    color: hsl(215 33% 10%);
+  }
+  .btn-steam-blue:hover {
+    background: linear-gradient(
+      to bottom,
+      hsl(200 85% 72%),
+      hsl(206 90% 50%)
+    );
+  }
+
+  /* Panel used across the store */
+  .panel {
+    @apply rounded bg-steam-panel/90 shadow-lg;
+    background: linear-gradient(
+      to bottom,
+      hsl(215 33% 15%),
+      hsl(215 33% 11%)
+    );
+  }
+
+  /* Skeleton shimmer base */
+  .skeleton {
+    @apply relative overflow-hidden bg-steam-card;
+  }
+  .skeleton::after {
+    content: '';
+    @apply absolute inset-0 -translate-x-full;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      hsl(215 33% 22%),
+      transparent
+    );
+    animation: shimmer 1.6s infinite;
+  }
+}
+
+/* Respect reduced-motion preferences for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

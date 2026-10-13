@@ -1,0 +1,17 @@
+rules_version = '2';
+
+// Firestore security rules.
+// The app authenticates with Firebase Auth only; wishlist / cart data can be
+// stored per authenticated user. Until auth is wired up with a project, keep
+// the database locked down (deny by default) which is the safe default.
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /users/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+
+      match /{document=**} {
+        allow read, write: if request.auth != null && request.auth.uid == userId;
+      }
+    }
+  }
+}
