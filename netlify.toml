@@ -1,3 +1,6 @@
+[build.environment]
+  SECRETS_SCAN_OMIT_KEYS = "VITE_TMDB_BASE_URL,VITE_TMDB_IMAGE_BASE_URL"
+
 [[redirects]]
   from = "/*"
   to = "/index.html"
