@@ -20,10 +20,10 @@ const buttonVariants = cva(
         green:
           'bg-steam-green text-steam-pricegreen hover:bg-steam-greendark active:brightness-95',
         outline:
-          'border border-steam-blue/40 bg-transparent text-steam-blue hover:bg-steam-blue/10 hover:border-steam-blue active:bg-steam-blue/20',
+          'border border-steam-blue/40 bg-transparent text-steam-blue hover:bg-steam-blue/10 hover:border-steam-blue hover:text-white hover:font-bold active:bg-steam-blue/20',
         ghost:
-          'text-steam-text hover:bg-white/5 hover:text-steam-blue active:bg-white/10',
-        link: 'text-steam-blue underline-offset-4 hover:underline',
+          'text-steam-text hover:bg-white/5 hover:text-white hover:font-bold active:bg-white/10',
+        link: 'text-steam-blue underline-offset-4 hover:underline hover:text-white hover:font-bold',
         destructive:
           'bg-destructive text-destructive-foreground hover:bg-destructive/90',
       },

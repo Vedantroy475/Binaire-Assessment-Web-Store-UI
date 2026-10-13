@@ -65,7 +65,7 @@ export function MediaCard({ item, className }: MediaCardProps) {
       {/* Body */}
       <div className="flex flex-1 flex-col gap-2 p-3">
         <div className="flex items-start justify-between gap-2">
-          <h3 className="line-clamp-1 text-sm font-semibold text-steam-text group-hover:text-steam-blue">
+          <h3 className="line-clamp-1 text-sm font-semibold text-steam-text group-hover:text-white group-hover:font-bold">
             {item.title}
           </h3>
           <PlatformIcons platforms={item.platforms} />

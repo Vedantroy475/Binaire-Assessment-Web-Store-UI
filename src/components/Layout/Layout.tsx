@@ -39,7 +39,7 @@ export function Layout({ children }: { children?: React.ReactNode }) {
                   <a
                     key={item}
                     href="#"
-                    className="text-xs uppercase tracking-wide text-steam-textdim transition-colors hover:text-steam-blue focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-steam-blue"
+                    className="text-xs uppercase tracking-wide text-steam-textdim transition-colors hover:text-white hover:font-bold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-steam-blue"
                   >
                     {item}
                   </a>

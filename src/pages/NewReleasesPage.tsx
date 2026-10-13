@@ -139,7 +139,7 @@ export function NewReleasesPage() {
               <button
                 type="button"
                 onClick={() => setFilters(defaultFilterState())}
-                className="text-sm text-steam-blue hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-steam-blue"
+                className="text-sm text-steam-blue hover:underline hover:text-white hover:font-bold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-steam-blue"
               >
                 Reset all filters
               </button>
@@ -173,7 +173,7 @@ export function NewReleasesPage() {
                       pagination.next()
                       rerender()
                     }}
-                    className="flex items-center gap-2 rounded bg-steam-card px-4 py-2 text-sm font-semibold text-steam-blue hover:bg-steam-cardhover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-steam-blue"
+                    className="flex items-center gap-2 rounded bg-steam-card px-4 py-2 text-sm font-semibold text-steam-blue hover:bg-steam-cardhover hover:text-white hover:font-bold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-steam-blue"
                   >
                     <Loader2 className="h-4 w-4" aria-hidden="true" />
                     Load more
@@ -187,7 +187,7 @@ export function NewReleasesPage() {
             Browse titles from the{' '}
             <Link
               to="/"
-              className="text-steam-blue hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-steam-blue"
+              className="text-steam-blue hover:underline hover:text-white hover:font-bold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-steam-blue"
             >
               home page
             </Link>

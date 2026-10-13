@@ -26,9 +26,11 @@ Built with **React 18 + TypeScript + Vite + Tailwind CSS + GSAP**.
 - **Storefront home page** with a featured carousel (GSAP animated) and content shelves.
 - **New Releases / Explore page** with a client-side **filter sidebar** (genres, price range, on-sale only, minimum rating) and a **sorting dropdown** (release date, name, rating — implemented with the Strategy pattern).
 - **Movie detail page** (`/app/:id`) with backdrop gallery, ratings, price tag, add-to-cart and wishlist controls.
+- **Live search suggestions in the navbar** — typing 2+ characters in the global search bar shows the **top 4 TMDB results** in a dropdown directly beneath it (poster thumbnail, title, year and rating). Requests are debounced (300 ms) with stale-response guarding, the dropdown is fully keyboard-navigable (`↑`/`↓` to highlight, `Enter` to open, `Escape` to close) with an ARIA combobox pattern, and clicking a suggestion opens that movie's detail page (`/app/:id`). Degrades silently when offline or when TMDB credentials are missing.
 - **Search page** with server-side TMDB search plus a client-side scored `SearchEngine` for narrowing loaded results.
 - **Categories page** for browsing by genre.
 - **Pagination bar** for TMDB's paginated endpoints.
+- **Steam-style hover states** — buttons, header/footer nav links, filter labels, text links and movie-card titles transition to **bold white** text on hover, matching the reference storefront.
 - **Authentication** — sign-up / sign-in / sign-out via **Firebase Auth (email/password only)**, exposed through a React `AuthContext` and an `AuthModal` dialog. The app degrades gracefully (a friendly notice instead of a crash) when Firebase keys are not configured.
 - **Offline support** — every TMDB response is cached in **IndexedDB**; when the network goes down the app serves cache-first data, and a `NetworkStatusBanner` informs the user. Falls back to an in-memory cache if IndexedDB is unavailable (e.g. private browsing).
 - **Setup page** (`/setup`) with in-app, copy-paste instructions and live status indicators for the required TMDB and Firebase credentials.

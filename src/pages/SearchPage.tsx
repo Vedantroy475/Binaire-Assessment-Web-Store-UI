@@ -92,7 +92,7 @@ export function SearchPage() {
       )}
 
       <p className="mt-8 text-sm text-steam-textdim">
-        <Link to="/" className="text-steam-blue hover:underline">
+        <Link to="/" className="text-steam-blue hover:underline hover:text-white hover:font-bold">
           ← Back to the store
         </Link>
       </p>

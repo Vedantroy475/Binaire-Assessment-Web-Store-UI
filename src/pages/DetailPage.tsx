@@ -64,7 +64,7 @@ export function DetailPage() {
         <div role="alert" className="rounded border border-destructive/40 bg-destructive/10 px-4 py-3 text-steam-text">
           {error?.message ?? 'Could not load this title.'}
         </div>
-        <Link to="/" className="mt-4 inline-block text-steam-blue hover:underline">
+        <Link to="/" className="mt-4 inline-block text-steam-blue hover:underline hover:text-white hover:font-bold">
           ← Back to store
         </Link>
       </div>
@@ -82,7 +82,7 @@ export function DetailPage() {
 
       {/* Breadcrumb */}
       <nav aria-label="Breadcrumb" className="mb-4 text-xs text-steam-textdim">
-        <Link to="/" className="hover:text-steam-blue">
+        <Link to="/" className="hover:text-white hover:font-bold">
           All Titles
         </Link>
         <span className="mx-1">›</span>
