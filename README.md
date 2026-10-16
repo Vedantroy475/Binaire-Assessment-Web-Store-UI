@@ -1,4 +1,5 @@
 # FreznelAI Assessment — Web Store UI (Steam-inspired)
+> **Live Demo:** [https://vedantwebstorebinaire.netlify.app/](https://vedantwebstorebinaire.netlify.app/)
 
 A recreation of a **digital storefront UI** (styled after the Steam store) built as part of the Binaire / Freznel AI assessment. It is a pure client-side Single Page Application that serves movie/data content from **The Movie Database (TMDB)** API and provides **Firebase Authentication** (email/password) for sign-up and sign-in.
 
@@ -181,6 +182,8 @@ The app opens at **<http://localhost:5173>** (auto-opens by default). You can al
 ## Deployment (Netlify & Firebase Hosting)
 
 ### Netlify Deployment
+
+> **Live Deployment:** [https://vedantwebstorebinaire.netlify.app/](https://vedantwebstorebinaire.netlify.app/)
 
 The project contains a `netlify.toml` file configured for single-page routing:
 
